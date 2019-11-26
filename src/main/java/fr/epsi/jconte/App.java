@@ -1,5 +1,6 @@
 package fr.epsi.jconte;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -19,7 +20,7 @@ public class App
         trivia.add("Pat");
         trivia.add("Sue");
 
-        Random rand = new Random();
+        SecureRandom rand = new SecureRandom();
 
         do {
 
