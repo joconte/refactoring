@@ -63,11 +63,9 @@ public class Trivia {
 				System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-				
-				System.out.println(players.get(currentPlayer) 
-						+ "'s new location is " 
-						+ places[currentPlayer]);
-				System.out.println("The category is " + currentCategory());
+
+				printCurrentPlayerLocation(currentPlayer);
+				printCategory(currentCategory());
 				askQuestion();
 			} else {
 				System.out.println(players.get(currentPlayer) + " is not getting out of the penalty box");
@@ -82,10 +80,21 @@ public class Trivia {
 			System.out.println(players.get(currentPlayer) 
 					+ "'s new location is " 
 					+ places[currentPlayer]);
-			System.out.println("The category is " + currentCategory());
+			printCategory(currentCategory());
 			askQuestion();
 		}
 		
+	}
+
+	private void printCurrentPlayerLocation(int currentPlayer) {
+
+		System.out.println(players.get(currentPlayer)
+				+ "'s new location is "
+				+ places[currentPlayer]);
+	}
+
+	private void printCategory(String currentCategory) {
+		System.out.println("The category is " + currentCategory);
 	}
 
 	private void askQuestion() {
@@ -118,11 +127,9 @@ public class Trivia {
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
 				purses[currentPlayer]++;
-				System.out.println(players.get(currentPlayer) 
-						+ " now has "
-						+ purses[currentPlayer]
-						+ " Gold Coins.");
-				
+
+				printPlayerGoldCoin(currentPlayer);
+
 				boolean winner = didPlayerWin();
 				currentPlayer++;
 				if (currentPlayer == players.size()) currentPlayer = 0;
@@ -140,11 +147,9 @@ public class Trivia {
 		
 			System.out.println("Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			System.out.println(players.get(currentPlayer) 
-					+ " now has "
-					+ purses[currentPlayer]
-					+ " Gold Coins.");
-			
+
+			printPlayerGoldCoin(currentPlayer);
+
 			boolean winner = didPlayerWin();
 			currentPlayer++;
 			if (currentPlayer == players.size()) currentPlayer = 0;
@@ -152,7 +157,15 @@ public class Trivia {
 			return winner;
 		}
 	}
-	
+
+	private void printPlayerGoldCoin(int currentPlayer) {
+
+		System.out.println(players.get(currentPlayer)
+				+ " now has "
+				+ purses[currentPlayer]
+				+ " Gold Coins.");
+	}
+
 	public boolean wrongAnswer(){
 		System.out.println("Question was incorrectly answered");
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
