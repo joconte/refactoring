@@ -3,7 +3,7 @@ pipeline {
 		label 'master'
 	 }
 	 triggers {
-        pollSCM('H/5 * * * *')
+        pollSCM('H/1 * * * *')
     }
     options {
     disableConcurrentBuilds()
