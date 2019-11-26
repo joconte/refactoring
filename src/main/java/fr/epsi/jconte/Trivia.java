@@ -40,26 +40,22 @@ public class Trivia {
 	}
 	
 	public boolean isPlayable() {
-		return (howManyPlayers() >= 2);
+		return (players.size() >= 2);
 	}
 
 	public boolean add(String playerName) {
 		
 		
 	    players.add(playerName);
-	    places[howManyPlayers()] = 0;
-	    purses[howManyPlayers()] = 0;
-	    inPenaltyBox[howManyPlayers()] = false;
+	    places[players.size()] = 0;
+	    purses[players.size()] = 0;
+	    inPenaltyBox[players.size()] = false;
 
 	    logger.info(playerName + " was added");
 	    logger.info("They are player number " + players.size());
 		return true;
 	}
 	
-	public int howManyPlayers() {
-		return players.size();
-	}
-
 	public void roll(int roll) {
 		logger.info(players.get(currentPlayer) + " is the current player");
 		logger.info("They have rolled a " + roll);
@@ -153,7 +149,7 @@ public class Trivia {
 			
 		} else {
 		
-			logger.info("Answer was corrent!!!!");
+			logger.info("Answer was correct!!!!");
 			purses[currentPlayer]++;
 
 			printPlayerGoldCoin(currentPlayer);

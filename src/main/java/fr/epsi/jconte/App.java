@@ -1,5 +1,7 @@
 package fr.epsi.jconte;
 
+import org.apache.log4j.BasicConfigurator;
+
 import java.security.SecureRandom;
 
 /**
@@ -11,6 +13,8 @@ public class App
 
     public static void main( String[] args )
     {
+        BasicConfigurator.configure();
+
         boolean notAWinner;
 
         Trivia trivia = new Trivia();
