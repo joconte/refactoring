@@ -8,10 +8,10 @@ public class Trivia {
 
 	private static Logger logger = Logger.getLogger(Trivia.class);
 
-	private final String pop = "Pop";
-	private final String science = "Science";
-	private final String sports = "Sports";
-	private final String rock = "Rock";
+	private static final String pop = "Pop";
+	private static final String science = "Science";
+	private static final String sports = "Sports";
+	private static final String rock = "Rock";
 
     ArrayList players = new ArrayList();
     int[] places = new int[6];
