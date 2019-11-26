@@ -1,7 +1,6 @@
 package fr.epsi.jconte;
 
 import java.security.SecureRandom;
-import java.util.Random;
 
 /**
  * Hello world!

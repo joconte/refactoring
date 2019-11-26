@@ -7,6 +7,12 @@ import org.apache.log4j.Logger;
 public class Trivia {
 
 	private static Logger logger = Logger.getLogger(Trivia.class);
+
+	private final String pop = "Pop";
+	private final String science = "Science";
+	private final String sports = "Sports";
+	private final String rock = "Rock";
+
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -100,28 +106,28 @@ public class Trivia {
 	}
 
 	private void askQuestion() {
-		if (currentCategory().equals("Pop"))
+		if (currentCategory().equals(pop))
 			logger.info(popQuestions.removeFirst());
-		if (currentCategory().equals("Science"))
+		if (currentCategory().equals(science))
 			logger.info(scienceQuestions.removeFirst());
-		if (currentCategory().equals("Sports"))
+		if (currentCategory().equals(sports))
 			logger.info(sportsQuestions.removeFirst());
-		if (currentCategory().equals("Rock"))
+		if (currentCategory().equals(rock))
 			logger.info(rockQuestions.removeFirst());		
 	}
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
-		return "Rock";
+		if (places[currentPlayer] == 0) return pop;
+		if (places[currentPlayer] == 4) return pop;
+		if (places[currentPlayer] == 8) return pop;
+		if (places[currentPlayer] == 1) return science;
+		if (places[currentPlayer] == 5) return science;
+		if (places[currentPlayer] == 9) return science;
+		if (places[currentPlayer] == 2) return sports;
+		if (places[currentPlayer] == 6) return sports;
+		if (places[currentPlayer] == 10) return sports;
+		return rock;
 	}
 
 	public boolean wasCorrectlyAnswered() {
@@ -180,6 +186,6 @@ public class Trivia {
 
 
 	private boolean didPlayerWin() {
-		return !(purses[currentPlayer] == 6);
+		return purses[currentPlayer] != 6;
 	}
 }
