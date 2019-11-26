@@ -2,9 +2,11 @@ package fr.epsi.jconte;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import org.apache.log4j.Logger;
 
 public class Trivia {
 
+	private static Logger logger = Logger.getLogger(Trivia.class);
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -42,9 +44,9 @@ public class Trivia {
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
-	    
-	    System.out.println(playerName + " was added");
-	    System.out.println("They are player number " + players.size());
+
+	    logger.info(playerName + " was added");
+	    logger.info("They are player number " + players.size());
 		return true;
 	}
 	
@@ -53,14 +55,14 @@ public class Trivia {
 	}
 
 	public void roll(int roll) {
-		System.out.println(players.get(currentPlayer) + " is the current player");
-		System.out.println("They have rolled a " + roll);
+		logger.info(players.get(currentPlayer) + " is the current player");
+		logger.info("They have rolled a " + roll);
 		
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 				
-				System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
+				logger.info(players.get(currentPlayer) + " is getting out of the penalty box");
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
@@ -68,7 +70,7 @@ public class Trivia {
 				printCategory(currentCategory());
 				askQuestion();
 			} else {
-				System.out.println(players.get(currentPlayer) + " is not getting out of the penalty box");
+				logger.info(players.get(currentPlayer) + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -77,7 +79,7 @@ public class Trivia {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 			
-			System.out.println(players.get(currentPlayer) 
+			logger.info(players.get(currentPlayer) 
 					+ "'s new location is " 
 					+ places[currentPlayer]);
 			printCategory(currentCategory());
@@ -88,24 +90,24 @@ public class Trivia {
 
 	private void printCurrentPlayerLocation(int currentPlayer) {
 
-		System.out.println(players.get(currentPlayer)
+		logger.info(players.get(currentPlayer)
 				+ "'s new location is "
 				+ places[currentPlayer]);
 	}
 
 	private void printCategory(String currentCategory) {
-		System.out.println("The category is " + currentCategory);
+		logger.info("The category is " + currentCategory);
 	}
 
 	private void askQuestion() {
 		if (currentCategory().equals("Pop"))
-			System.out.println(popQuestions.removeFirst());
+			logger.info(popQuestions.removeFirst());
 		if (currentCategory().equals("Science"))
-			System.out.println(scienceQuestions.removeFirst());
+			logger.info(scienceQuestions.removeFirst());
 		if (currentCategory().equals("Sports"))
-			System.out.println(sportsQuestions.removeFirst());
+			logger.info(sportsQuestions.removeFirst());
 		if (currentCategory().equals("Rock"))
-			System.out.println(rockQuestions.removeFirst());		
+			logger.info(rockQuestions.removeFirst());		
 	}
 	
 	
@@ -125,7 +127,7 @@ public class Trivia {
 	public boolean wasCorrectlyAnswered() {
 		if (inPenaltyBox[currentPlayer]){
 			if (isGettingOutOfPenaltyBox) {
-				System.out.println("Answer was correct!!!!");
+				logger.info("Answer was correct!!!!");
 				purses[currentPlayer]++;
 
 				printPlayerGoldCoin(currentPlayer);
@@ -145,7 +147,7 @@ public class Trivia {
 			
 		} else {
 		
-			System.out.println("Answer was corrent!!!!");
+			logger.info("Answer was corrent!!!!");
 			purses[currentPlayer]++;
 
 			printPlayerGoldCoin(currentPlayer);
@@ -160,15 +162,15 @@ public class Trivia {
 
 	private void printPlayerGoldCoin(int currentPlayer) {
 
-		System.out.println(players.get(currentPlayer)
+		logger.info(players.get(currentPlayer)
 				+ " now has "
 				+ purses[currentPlayer]
 				+ " Gold Coins.");
 	}
 
 	public boolean wrongAnswer(){
-		System.out.println("Question was incorrectly answered");
-		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
+		logger.info("Question was incorrectly answered");
+		logger.info(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
