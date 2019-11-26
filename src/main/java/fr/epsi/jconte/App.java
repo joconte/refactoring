@@ -10,10 +10,10 @@ import java.util.Random;
 public class App 
 {
 
-    private static boolean notAWinner;
-
     public static void main( String[] args )
     {
+        boolean notAWinner;
+
         Trivia trivia = new Trivia();
 
         trivia.add("Chet");
