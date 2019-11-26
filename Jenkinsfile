@@ -21,6 +21,11 @@ pipeline {
                 sh "mvn package"
             }
         }
+        stage('Inspection') {
+             steps{
+                sh "mvn sonar:sonar"
+             }
+        }
     }
     post {
         always {
