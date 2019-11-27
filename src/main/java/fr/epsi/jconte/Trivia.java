@@ -2,10 +2,103 @@ package fr.epsi.jconte;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+
+import fr.epsi.jconte.model.IPlayer;
+import fr.epsi.jconte.model.IQuestion;
 import org.apache.log4j.Logger;
 
 public class Trivia {
 
+	private List<IQuestion> questions;
+
+	private List<IPlayer> players;
+
+	private	boolean[] penaltyBox;
+
+	private int[] places;
+
+	private int[] purses;
+
+	private int gameSize;
+
+	private int currentPlayer;
+
+	private boolean isGettingOutOfPenaltyBox;
+
+	public Trivia(List<IQuestion> questions, List<IPlayer> players, int gameSize) {
+		this.questions = questions;
+		this.players = players;
+		this.gameSize = gameSize;
+		this.currentPlayer = 0;
+	}
+
+	public List<IQuestion> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<IQuestion> questions) {
+		this.questions = questions;
+	}
+
+	public List<IPlayer> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<IPlayer> players) {
+		this.players = players;
+	}
+
+	public boolean[] getPenaltyBox() {
+		return penaltyBox;
+	}
+
+	public void setPenaltyBox(boolean[] penaltyBox) {
+		this.penaltyBox = penaltyBox;
+	}
+
+	public int[] getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(int[] places) {
+		this.places = places;
+	}
+
+	public int[] getPurses() {
+		return purses;
+	}
+
+	public void setPurses(int[] purses) {
+		this.purses = purses;
+	}
+
+	public int getGameSize() {
+		return gameSize;
+	}
+
+	public void setGameSize(int gameSize) {
+		this.gameSize = gameSize;
+	}
+
+	public int getCurrentPlayer() {
+		return currentPlayer;
+	}
+
+	public void setCurrentPlayer(int currentPlayer) {
+		this.currentPlayer = currentPlayer;
+	}
+
+	public boolean isGettingOutOfPenaltyBox() {
+		return isGettingOutOfPenaltyBox;
+	}
+
+	public void setGettingOutOfPenaltyBox(boolean gettingOutOfPenaltyBox) {
+		isGettingOutOfPenaltyBox = gettingOutOfPenaltyBox;
+	}
+}
+
+/*
 	private static Logger logger = Logger.getLogger(Trivia.class);
 
 	private static final String POP = "Pop";
@@ -185,3 +278,4 @@ public class Trivia {
 		return purses[currentPlayer] != 6;
 	}
 }
+*/
