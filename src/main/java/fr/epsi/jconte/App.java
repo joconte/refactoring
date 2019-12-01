@@ -1,7 +1,7 @@
 package fr.epsi.jconte;
 
+import java.security.SecureRandom;
 import java.util.List;
-import java.util.Random;
 
 import static java.util.Arrays.asList;
 
@@ -25,7 +25,7 @@ public class App
                 new PlayerList(PLAYERS)
         );
 
-        Random rand = new Random(1L);
+        SecureRandom rand = new SecureRandom();
 
         boolean notAWinner;
         do {
