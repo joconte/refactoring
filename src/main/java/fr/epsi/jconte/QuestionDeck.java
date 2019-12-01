@@ -3,7 +3,7 @@ package fr.epsi.jconte;
 import java.util.*;
 
 public class QuestionDeck {
-    private final Map<Category, Deque<String>> questionsByCategory = new HashMap<>();
+    private final Map<Category, Deque<String>> questionsByCategory = new EnumMap<>(Category.class);
 
     public QuestionDeck(int questionCount, List<Category> categories) {
         for (Category category : categories) {
