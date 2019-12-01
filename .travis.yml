@@ -1,0 +1,9 @@
+addons:
+  sonarcloud:
+    organization: "joconte"
+    token:
+      secure: "f9jv5JNZ5IHN1wTxhAZXdPzPiwC0zCu54CxDlGMnOGk1eEubx2rz+6UUMjytFq+qsUaRBoiV9Cqs+3mfZsGnt16eK42zzVpPcndsiGeBEvJ0/R1p9nP7dK+4JaV6rnJTgjRohB1rpYR3qvd7Lu0uEtoqIM5FOR3GTXzfPKiuGPUVYzwBoYbLmCkY1LV+3UJVZghuDfd0utZmQRCmqN6Hyyc+llIx2r3bkqwR3nGwyH9IMDZTYocB+S9gAdS04ng0OHEdx4OoTihMk0O/5P6BEXSOpw1JGb/DigDHQAStbGJ4hQdvKfu0pAJ3KxnWD0/vwYFMXYJNlPdemOvl3yCA6hVNF6XBx8mV9hneK506iOxayBuIeJnY2kt/huJdGBqpP/GiETomlSSdggPNRBkuDQu5hAct8Rjloj8ZdVlXmQueFuEpK4FJgwn3UkJB07VHjEdpS8B756mNWfwnZNyKtQocBgZRwoeLuemnO/AQndHx94B/V8SfIMjT2CGyzwrhpkiBEHfQ3i+QZb9dy7eMaBBKrMYwr5HjwTJS9u9PKXeHTIV9sBu9192B0EUPbbqmXpcCsRPF/qOqXeRvc/H8cxKIa/IG+wbwp8IhiWd8Qdu6Uukibe3WKJBCuPOdH+9XDWg6uXtt/eNlOvtdOVVQ9ua8iF7vms8db+G65I3KoVc="
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
