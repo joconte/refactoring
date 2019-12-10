@@ -11,7 +11,7 @@ import java.util.Random;
 
 import static java.util.Arrays.asList;
 
-public class GoldenMaster {
+public class GoldenMasterTest {
 
     private static final int NB_CELLS = 12;
     private static final int NB_QUESTIONS = 50;
